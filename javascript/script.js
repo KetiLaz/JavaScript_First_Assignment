@@ -9,7 +9,7 @@ let computerScore = 0;
 let draws = 0;
 let roundLost = 0;
 
-function singleRound (playerSelection, computerSelection) {
+function singleRound () {
      computerSelection = computerPlay();
      playerSelection = prompt("Let's play rock, paper, scissors. What do you choose?").toLowerCase();
      
