@@ -15,46 +15,50 @@ function singleRound (playerSelection, computerSelection) {
      
     if (playerSelection == computerSelection) {
         draws += 1;
-        return (`Both you AND the computer chose ${playerSelection}. It's a tie!`);
+        return `Both you AND the computer chose ${playerSelection}. It's a tie!`;
     }
     else if (playerSelection == "rock" && computerSelection == "paper" 
         || playerSelection == "paper" && computerSelection == "scissors"
         || playerSelection == "scissors" && computerSelection == "rock"){ 
             computerScore += 1;
-            return (`You Lost this Round! ${computerSelection} beats ${playerSelection}!`);
+            return `You Lost this Round! ${computerSelection} beats ${playerSelection}!`;
     }
     else if (playerSelection == "rock" && computerSelection == "scissors"
         || playerSelection == "paper" && computerSelection == "rock"
-        || playerSelection == "scisosrs" && computerSelection == "paper") {
+        || playerSelection == "scissors" && computerSelection == "paper") {
             playerScore += 1;
-            return (`You Won this Round! ${playerSelection} beats ${computerSelection}!`);
+            return `You Won this Round! ${playerSelection} beats ${computerSelection}!`;
     }
     else {
         roundLost +=1;
-        return (`The input is wrong! We are playing Rock, Paper, Scissors!`);
+        return `The input is wrong! We are playing Rock, Paper, Scissors!`;
     }
 };
 
 function game() {
     for (let i = 5; i >=1 ; i--) {
         let rounds = String(i -1);
+        if (roundLost > 0) {
+            rounds = String(i);
+            i +=1;
+            roundLost -=1;   
+        };
         if (rounds == 0 ) {
             rounds = "no";
-        }
-        
-        if (roundLost > 0) {
-            i += 1;
-            roundLost -=1;
-        }
-        console.log(singleRound(),`You have ${rounds} more rounds`);
-    }
+        };
+
+        alert(`${singleRound()} \n You have ${rounds} more rounds`);
+    };
+
     if (playerScore > computerScore) {
-        console.log(`Congrats, you won! Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`);
+        alert(`Congrats, you won! Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`);
     }
     else if (playerScore < computerScore) {
-        console.log(`You lost... Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`);
+        alert(`You lost... Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`);
     }
     else {
-        console.log(`It's a tie!. Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`)
+        alert(`It's a tie!. Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`)
     }
 };
+
+game();
