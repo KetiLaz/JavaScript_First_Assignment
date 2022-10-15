@@ -37,11 +37,11 @@ function singleRound (playerSelection, computerSelection) {
 
 function game() {
     for (let i = 5; i >=1 ; i--) {
-        let rounds = String(i -1);
+        let rounds = (i -1).toString();
         if (roundLost > 0) {
-            rounds = String(i);
-            i +=1;
-            roundLost -=1;   
+            rounds = i.toString();
+            i ++;
+            roundLost --;   
         };
         if (rounds == 0 ) {
             rounds = "no";
