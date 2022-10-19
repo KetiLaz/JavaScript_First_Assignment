@@ -57,7 +57,7 @@ function game() {
         alert(`You lost... Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`);
     }
     else {
-        alert(`It's a tie!. Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`)
+        alert(`It's a tie! Your score: ${playerScore}.\nThe computer score: ${computerScore}.\nThe draws: ${draws}`)
     }
 };
 
